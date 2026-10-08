@@ -3,8 +3,12 @@
 from __future__ import annotations
 
 import time
+from importlib import import_module
 
-import cv2
+try:
+    cv2 = import_module("cv2")
+except ModuleNotFoundError as exc:
+    raise RuntimeError("OpenCV is required. Install it with: pip install opencv-python") from exc
 
 from src import config
 from src.calculator_logic import Calculator
