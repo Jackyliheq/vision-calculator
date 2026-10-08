@@ -102,10 +102,24 @@ Camera frame
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+source .venv/bin/activate                    # macOS/Linux
+.venv\Scripts\Activate.ps1                   # Windows PowerShell
+python -m pip install -r requirements.txt
 python main.py
 ```
+
+On Windows, run the commands from the project directory:
+
+```powershell
+Set-Location C:\path\to\computervision_calculator
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python main.py
+```
+
+If PowerShell blocks activation scripts, run the application directly with
+`.venv\Scripts\python.exe` or adjust the execution policy for your user
+account according to your organization's policies.
 
 The repository includes the official `models/hand_landmarker.task` model used by
 MediaPipe's Tasks HandLandmarker API. Keep that file beside the source when
